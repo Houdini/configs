@@ -1,7 +1,7 @@
 127.0.0.1	localhost
 127.0.1.1	mozart
 127.0.0.1:8000	zotonic.bankconference.ru
-89.108.72.56 dvnews.dev
+178.79.130.210 dvnews.dev
 127.0.0.1:3000 rails
 127.0.0.1	piper
 127.0.0.1	piperint
@@ -10,6 +10,8 @@
 127.0.0.1	mysql0.locum.ru
 127.0.0.1	ee_delete
 127.0.0.1	sproutcore
+127.0.0.1   ezpublish
+127.0.0.1  dvnews.local
 
 0.0.0.0 localhost.lan group1.localhost.lan group2.localhost.lan
 # The following lines are desirable for IPv6 capable hosts
