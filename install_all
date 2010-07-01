@@ -1,0 +1,39 @@
+#!/bin/bash
+sudo apt-get install sudo apt-get install build-essential zlib1g-dev libssl-dev libreadline5-dev curl libgsl0-dev
+sudo apt-get install libxml2 libxml2-dev libxslt1-dev   
+sudo apt-get install libcompress-zlib-perl libssl-dev mysql-server libmysqlclient15-dev
+sudo apt-get install git-core gitk
+sudo apt-get install php5-common php5-cli
+sudo apt-get install mc gimp python-matplotlib vim vim-gnome vim-scripts pidgin pidgin-microblog pidgin-lastfm mencoder vlc mozilla-plugin-vlc geany geany-plugins subversion apache2 php5-mysql php5-gd php5-curl
+
+sudo apt-get install btnx btnx-config
+
+sudo apt-get install imagemagick
+
+sudo apt-get install ubuntu-restricted-extras
+
+sudo ln -s /media/backup/nginx /opt
+cd /tmp
+git clone git://github.com/jnstq/rails-nginx-passenger-ubuntu.git
+sudo mv rails-nginx-passenger-ubuntu/nginx/nginx /etc/init.d/nginx
+sudo chown root:root /etc/init.d/nginx
+
+
+sudo ln -s /media/backup/jdk1.6.0_20/ /opt/
+sudo ln -s /media/backup/jdk1.6.0_20/ /opt/jdk1.6.0_18
+sudo ln -s /media/backup/jdk1.6.0_20/ /opt/jdk1.6.0_16
+
+sudo ln -s /home/houdini/configs/etc/hosts /etc/hosts -f
+
+sudo apt-get install postgresql postgresql-common postgresql-client-common
+
+sudo apt-get install ocaml
+sudo apt-get install texlive-full texlive-latex-extra
+sudo apt-get install dvipng
+
+sudo chown postgres:postgres /media/backup/postgres_data -R
+sudo /etc/init.d/postgresql-8.4 stop
+sudo rm -rf /var/lib/postgresql/
+sudo ln -s /media/backup/postgres_data/postgresql/ /var/lib/
+sudo ln -s /home/houdini/configs/postgresql/pg_hba.conf /etc/postgresql/8.4/main/pg_hba.conf -f
+sudo /etc/init.d/postgresql-8.4 start

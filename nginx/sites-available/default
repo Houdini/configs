@@ -5,6 +5,97 @@
 # statements for each of your virtual hosts
 
 server {
+    listen 80;
+    server_name math_in_html;
+    root /home/houdini/RubymineProjects/math_in_html/public;
+    index index.html;
+
+    passenger_enabled on;
+    rails_env development;
+}
+
+server {
+    listen 80;
+    server_name wp3;
+    index index.php;
+    root /home/houdini/EE/wp3;
+    location ~ \.php$ {
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  /home/houdini/EE/wp3$fastcgi_script_name;
+		include fastcgi_params;
+    }
+    if (!-e $request_filename) {
+        rewrite ^(.+)$  /index.php   last;
+    }
+}
+
+
+server {
+    listen 80;
+    server_name solution www.solution;
+    root /home/houdini/EE/solution;
+    index index.php;
+
+    location / {
+        if (!-e $request_filename) {
+            rewrite ^/(.*)$ /index.php?/$1 last;
+        }
+    }
+
+    location /index.php {
+        set $script $uri;
+        set $path_info $uri;
+        if ($args ~* "^(/.+)$") {
+            set $path_info $1;
+        }
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  /home/houdini/EE/solution$fastcgi_script_name;
+		include fastcgi_params;
+    }
+        
+    location ~ \.php$ {
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  /home/houdini/EE/solution$fastcgi_script_name;
+		include fastcgi_params;
+    }
+}
+
+server {
+    listen 80;
+    server_name bankconference www.bankconference;
+    root /home/houdini/EE/bankconference;
+    index index.php;
+
+    location / {
+        if (!-e $request_filename) {
+            rewrite ^/(.*)$ /index.php?/$1 last;
+        }
+    }
+
+    location /index.php {
+        set $script $uri;
+        set $path_info $uri;
+        if ($args ~* "^(/.+)$") {
+            set $path_info $1;
+        }
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  /home/houdini/EE/bankconference$fastcgi_script_name;
+		include fastcgi_params;
+    }
+        
+    location ~ \.php$ {
+		fastcgi_pass   127.0.0.1:9000;
+		fastcgi_index  index.php;
+		fastcgi_param  SCRIPT_FILENAME  /home/houdini/EE/bankconference$fastcgi_script_name;
+		include fastcgi_params;
+    }
+}
+
+server {
 	listen 80;
 	server_name ezpublish www.ezpublish;
     root /home/houdini/EE/ezpublish;
