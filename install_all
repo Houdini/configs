@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt-get install sudo apt-get install build-essential zlib1g-dev libssl-dev libreadline5-dev curl libgsl0-dev
+sudo apt-get install build-essential zlib1g-dev libssl-dev libreadline5-dev curl libgsl0-dev
 sudo apt-get install libxml2 libxml2-dev libxslt1-dev   
 sudo apt-get install libcompress-zlib-perl libssl-dev mysql-server libmysqlclient15-dev
 sudo apt-get install git-core gitk
